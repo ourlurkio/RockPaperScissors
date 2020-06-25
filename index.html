@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script>
+
+      let computerScore = 0;
+      let humanScore = 0;
+
+      function computerPlay(){
+        const possiblePlay = ["rock","paper","scissors"];
+        let randomNumber = Math.floor(Math.random() * 3);
+        let computerDecision = possiblePlay[randomNumber];
+        return computerDecision;
+
+      }
+
+      function singleRound(playerSelection){
+        const lowerCase = playerSelection.toLowerCase();
+        const computerSelection = computerPlay();
+        console.log(computerSelection);
+
+        if (lowerCase == "rock") {
+          if (computerSelection == "paper") {
+            console.log("You lost! " + computerSelection + " beats " + lowerCase);
+            computerScore++;
+          } else if (computerSelection == "scissors") {
+            console.log("You won! " + playerSelection + " beats " + computerSelection);
+            humanScore++;
+          } else {
+            console.log("Its a tie! Rock");
+          }
+
+        }
+
+        if (lowerCase == "paper") {
+          if (computerSelection == "scissors") {
+            console.log("You lost! " + computerSelection + " beats " + lowerCase);
+            computerScore++;
+          } else if (computerSelection == "rock") {
+            console.log("You won! " + playerSelection + " beats " + computerSelection);
+            humanScore++;
+          } else {
+            console.log("Its a tie! Paper");
+          }
+        }
+
+        if (lowerCase == "scissors") {
+          if (computerSelection == "rock") {
+            console.log("You lost! " + computerSelection + " beats " + lowerCase);
+            computerScore++;
+          } else if (computerSelection == "paper") {
+            console.log("You won! " + playerSelection + " beats " + computerSelection);
+            humanScore++;
+          } else {
+            console.log("Its a tie! Scissors");
+          }
+
+        }
+      }
+
+      function game(){
+        for (i = 0; i < 5; i++) {
+          let choice = window.prompt("Rock, Paper or Scissors?");
+          singleRound(choice);
+          console.log("The current score is computer: " + computerScore + " vs human: " + humanScore);
+
+        }
+      }
+
+      game();
+
+    </script>
+
+
+  </body>
+</html>
